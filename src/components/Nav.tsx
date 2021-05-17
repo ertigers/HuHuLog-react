@@ -11,15 +11,19 @@ const NavWrapper =  styled.div`
   >ul {
     display: flex;
     >li {
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
       width:33.33%;
-      padding:16px;
-      .icon {
-        height: 24px; 
+      a {
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        padding:16px;
+        .icon {
+          height: 24px; 
+          width:24px; 
+        }
       }
+   
     }
   }
 
@@ -30,16 +34,22 @@ const Nav = ()=>{
     <NavWrapper>
       <ul>
         <li>
-          <Icon name="tags"/>
-          <Link to="/tags">标签</Link>
+          <Link to="/tags">
+            <Icon name="tags"/>
+            标签
+          </Link>
         </li>
         <li>
-          <Icon name="money"/>
-          <Link to="/money">记账</Link>
+          <Link to="/money">
+            <Icon name="money"/>
+            记账
+          </Link>
         </li>
         <li>
-          <Icon name="statistics"/>
-          <Link to="/statistics">统计</Link>
+          <Link to="/statistics">
+            <Icon name="statistics"/>
+            统计
+          </Link>
         </li>
       </ul>
     </NavWrapper>
