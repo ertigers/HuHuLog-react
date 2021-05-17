@@ -5,9 +5,9 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import Tags from 'views/tags';
-import Money from 'views/money';
-import Statistics from 'views/statistics';
+import Tags from './views/Tags';
+import Money from './views/Money';
+import Statistics from './views/Statistics';
 import NoMatch from './views/NoMatch';
 
 const App = ()=> {
