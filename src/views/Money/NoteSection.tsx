@@ -1,6 +1,17 @@
 import styled from "styled-components";
 
-const NotesSection = styled.section`
+const NotesSection:React.FC = ()=>{
+  return(
+    <_NotesSection>
+      <label>
+        <span>备注</span>
+        <input type="text" placeholder="在这里添加备注"/>
+      </label>
+    </_NotesSection>
+  )
+}
+
+const _NotesSection = styled.section`
   background: #f5f5f5;
   padding: 0 16px;
   font-size: 14px;
