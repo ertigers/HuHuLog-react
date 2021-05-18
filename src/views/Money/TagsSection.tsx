@@ -19,7 +19,7 @@ const TagsSection: React.FC = (props) => {
     }
   };
   return (
-    <_TagsSection>
+    <Wrapper>
       <ol>
         {tags.map((tag) => (
           <li
@@ -32,11 +32,11 @@ const TagsSection: React.FC = (props) => {
         ))}
       </ol>
       <button onClick={onAddTag}>新增标签</button>
-    </_TagsSection>
+    </Wrapper>
   );
 };
 
-const _TagsSection = styled.section`
+const Wrapper = styled.section`
   background: #ffffff;
   padding: 12px 16px;
   flex-grow: 1;

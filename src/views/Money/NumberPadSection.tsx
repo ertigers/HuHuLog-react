@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const NumberPadSection:React.FC = ()=>{
   return(
-    <_NumberPadSection>
+    <Wrapper>
        <div className="output">
           100
         </div>
@@ -22,11 +22,11 @@ const NumberPadSection:React.FC = ()=>{
           <button className="zero">0</button>
           <button className="dot">.</button>
         </div>
-    </_NumberPadSection>
+    </Wrapper>
   )
 }
 
-const _NumberPadSection = styled.section`
+const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   > .output {
