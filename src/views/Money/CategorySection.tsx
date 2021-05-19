@@ -1,16 +1,22 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-const CategorySection: React.FC = () => {
-  const categoryMap = {"-": "支出","+": "收入"};
-  type Keys = keyof typeof categoryMap
+const categoryMap = {"-": "支出","+": "收入"};
+type Keys = keyof typeof categoryMap
+
+type Props = {
+  value: Keys;
+  onChange: (value: Keys) => void;
+}
+
+const CategorySection: React.FC<Props> = (props) => {
   const [categoryList] = useState<Keys[]>(["-", "+"]);
-  const [category, setCategory] = useState("-");
+  const category = props.value
   return (
     <Wrapper>
       <ul>
         {categoryList.map(c => 
-          <li key={c} className={category===c?'selected':''} onClick={()=>{setCategory(c)}}>{categoryMap[c]}</li>
+          <li key={c} className={category===c?'selected':''} onClick={()=>{props.onChange(c)}}>{categoryMap[c]}</li>
         )}
       </ul>
     </Wrapper>
