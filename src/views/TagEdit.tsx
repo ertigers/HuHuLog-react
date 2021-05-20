@@ -5,6 +5,8 @@ import React from 'react';
 import { useParams } from 'react-router';
 import { useTags } from 'useTags';
 import styled from 'styled-components';
+import InputItem from 'components/InputItem';
+import {Center} from 'components/Center';
 
 type Params = {
   id:string
@@ -15,6 +17,11 @@ const Topbar = styled.header`
   align-items:center;
   line-height: 20px;
   padding: 14px;
+  background:white;
+`
+const InputItemWrapper = styled.div`
+  margin-top:8px;
+  padding: 0 16px;
   background:white;
 `
 
@@ -33,15 +40,12 @@ const TagEdit: React.FC = (props)=>{
         <span>编辑标签</span>
         <Icon name=''></Icon>
       </Topbar>
-      <div>
-        <label>
-          <span>标签名：</span>
-          <input type="text" placeholder='标签名'/>
-        </label>
-      </div>
-      <div>
+      <InputItemWrapper>
+        <InputItem label='标签名' type='text' placeholder='标签名'/>
+      </InputItemWrapper>
+      <Center>
         <Button>删除标签</Button>
-      </div>
+      </Center>
     </Layout>
   )
 }
