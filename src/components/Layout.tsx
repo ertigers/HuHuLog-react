@@ -10,6 +10,7 @@ const Wrapper = styled.div`
 const Main =  styled.div`
   flex-grow: 1;
   overflow:hidden;
+  background:#f5f5f5;
 `;
 
 const Layout = (props:any)=> {

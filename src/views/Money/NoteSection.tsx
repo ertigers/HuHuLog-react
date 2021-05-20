@@ -1,5 +1,6 @@
+import { ChangeEventHandler } from "react";
 import styled from "styled-components";
-import { useRef } from "react";
+import InputItem from 'components/InputItem';
 
 type Props = {
   value: string;
@@ -7,25 +8,13 @@ type Props = {
 }
 
 const NoteSection: React.FC<Props> = (props) => {
-  const note = props.value
-  const refInput = useRef<HTMLInputElement>(null)
-  const onBlur = ()=>{
-    if(refInput.current !== null) {
-      props.onChange(refInput.current.value)
-    }
-  }
+  const note = props.value;
+  const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    props.onChange(e.target.value);
+  };
   return (
     <Wrapper>
-      <label>
-        <span>备注</span>
-        <input
-          type="text"
-          placeholder="在这里添加备注"
-          ref={refInput}
-          defaultValue={note}
-          onBlur={onBlur}
-        />
-      </label>
+      <InputItem label="备注" type="text" value={note} onChange={onChange} placeholder="请填写备注"/>
     </Wrapper>
   );
 };

@@ -4,6 +4,7 @@ import { useTags } from "useTags";
 import styled from "styled-components";
 import Icon from 'components/Icon';
 import { Link } from "react-router-dom";
+import Button from "components/Button";
 
 const TagList = styled.ol`
   background: white;
@@ -20,15 +21,6 @@ const TagList = styled.ol`
   }
 `;
 
-const Button = styled.button`
-  font-size:18px;
-  border:none;
-  border-radius:8px;
-  padding: 8px 12px;
-  background:#999;
-  color: white;
-  margin-top:40px;
-`
 const Center = styled.div`
   display:flex;
   justify-content:center;
