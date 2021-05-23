@@ -6,5 +6,5 @@ git init &&
 git add . &&
 git commit -m 'deploy' &&
 git remote add origin git@github.com:ertigers/moneyLog-react-website.git &&
-git push -u origin master -f
+git push -u origin main -f
 cd -
