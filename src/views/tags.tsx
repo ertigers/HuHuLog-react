@@ -12,12 +12,13 @@ const TagList = styled.ol`
   > li {
     line-height:20px;
     margin-left: 16px;
+    margin-right: 16px;
     border-bottom:1px solid #666;
     > a{
       display:flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 16px 12px 0;
+      padding: 12px 0 12px 0;
     }
   }
 `;
