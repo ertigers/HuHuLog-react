@@ -13,6 +13,8 @@ import styled from "styled-components";
 
 const AppWrapper = styled.div`
   color: #333;
+  max-width: 400px;
+  margin: 0 auto;
 `;
 
 const App = ()=> {

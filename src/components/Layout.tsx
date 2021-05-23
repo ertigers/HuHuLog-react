@@ -10,6 +10,9 @@ const Wrapper = styled.div`
 const Main = styled.div`
   flex-grow: 1;
   overflow: auto;
+  ::-webkit-scrollbar {
+    display: none; /* Chrome Safari */
+  }
 `;
 type Props = {
   className?: string;
@@ -34,7 +37,7 @@ const Layout: React.FC<Props> = (props) => {
 };
 
 Layout.defaultProps = {
-  scrollTop: 0
+  scrollTop: 999999
 };
 
 export default Layout;
