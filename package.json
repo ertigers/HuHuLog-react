@@ -1,7 +1,7 @@
 {
   "name": "money-react",
   "version": "0.1.0",
-  "homepage": "https://github.com/moneyLog-react-website/",
+  "homepage": "https://github.com/HuHuLog-react-website/",
   "private": true,
   "dependencies": {
     "@babel/core": "7.12.3",
