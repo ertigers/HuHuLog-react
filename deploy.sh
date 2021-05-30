@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-rm -rf dist &&
+
+rm -rf build &&
 yarn build &&
-cd dist &&
+cd build &&
 git init &&
 git add . &&
 git commit -m "update" &&
