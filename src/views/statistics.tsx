@@ -1,23 +1,24 @@
-import Layout from '../components/Layout';
-import {ReactNode, useState} from 'react';
-import {CategorySection} from '../components/CategorySection';
-import styled from 'styled-components';
-import {RecordItem, useRecords} from '../hooks/useRecords';
-import {useTags} from '../hooks/useTags';
-import day from 'dayjs';
+import Layout from "../components/Layout";
+import { ReactNode, useState } from "react";
+import { CategorySection } from "../components/CategorySection";
+import styled from "styled-components";
+import { RecordItem, useRecords } from "../hooks/useRecords";
+import { useTags } from "../hooks/useTags";
+import day from "dayjs";
+import None from "../components/None";
 
 const CategoryWrapper = styled.div`
-  background:white;
+  background: white;
 `;
 
 const Item = styled.div`
-  display:flex;
+  display: flex;
   justify-content: space-between;
   background: white;
   font-size: 18px;
   line-height: 20px;
   padding: 10px 16px;
-  > .note{
+  > .note {
     margin-right: auto;
     margin-left: 16px;
     color: #999;
@@ -30,14 +31,14 @@ const Header = styled.h3`
 `;
 
 function Statistics() {
-  const [category, setCategory] = useState<'-' | '+'>('-');
-  const {records} = useRecords();
-  const {getName} = useTags();
+  const [category, setCategory] = useState<"-" | "+">("-");
+  const { records } = useRecords();
+  const { getName } = useTags();
   const hash: { [K: string]: RecordItem[] } = {}; // {'2020-05-11': [item, item], '2020-05-10': [item, item], '2020-05-12': [item, item, item, item]}
-  const selectedRecords = records.filter(r => r.category === category);
+  const selectedRecords = records.filter((r) => r.category === category);
 
-  selectedRecords.forEach(r => {
-    const key = day(r.createdAt).format('YYYY年MM月DD日');
+  selectedRecords.forEach((r) => {
+    const key = day(r.createdAt).format("YYYY年MM月DD日");
     if (!(key in hash)) {
       hash[key] = [];
     }
@@ -51,39 +52,58 @@ function Statistics() {
     return 0;
   });
 
+  const StatisticsVisible = () => {
+    let visible;
+    if (array.length > 0) {
+      visible = (
+        <div>
+          {array.map(([date, records]) => (
+            <div>
+              <Header>{date}</Header>
+              <div>
+                {records.map((r) => {
+                  return (
+                    <Item>
+                      <div className="tags oneLine">
+                        {r.tagIds
+                          .map((tagId) => (
+                            <span key={tagId}>{getName(tagId)}</span>
+                          ))
+                          .reduce(
+                            (result, span, index, array) =>
+                              result.concat(
+                                index < array.length - 1 ? [span, "，"] : [span]
+                              ),
+                            [] as ReactNode[]
+                          )}
+                      </div>
+                      {r.note && <div className="note">{r.note}</div>}
+                      <div className="amount">￥{r.amount}</div>
+                    </Item>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    } else {
+      visible = <None />;
+    }
+    return visible;
+  };
+
   return (
     <Layout>
       <CategoryWrapper>
-        <CategorySection value={category}
-          onChange={value => setCategory(value)}/>
+        <CategorySection
+          value={category}
+          onChange={(value) => setCategory(value)}
+        />
       </CategoryWrapper>
-      {array.map(([date, records]) => <div>
-        <Header>
-          {date}
-        </Header>
-        <div>
-          {records.map(r => {
-            return <Item>
-              <div className="tags oneLine">
-                {r.tagIds
-                  .map(tagId => <span key={tagId}>{getName(tagId)}</span>)
-                  .reduce((result, span, index, array) =>
-                    result.concat(index < array.length - 1 ? [span, '，'] : [span]), [] as ReactNode[])
-                }
-              </div>
-              {r.note && <div className="note">
-                {r.note}
-              </div>}
-              <div className="amount">
-                ￥{r.amount}
-              </div>
-            </Item>;
-          })}
-        </div>
-      </div>)}
+      <StatisticsVisible />
     </Layout>
   );
 }
-
 
 export default Statistics;
