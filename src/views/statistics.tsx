@@ -1,6 +1,6 @@
 import Layout from '../components/Layout';
 import {ReactNode, useState} from 'react';
-import {CategorySection} from './Money/CategorySection';
+import {CategorySection} from '../components/CategorySection';
 import styled from 'styled-components';
 import {RecordItem, useRecords} from '../hooks/useRecords';
 import {useTags} from '../hooks/useTags';

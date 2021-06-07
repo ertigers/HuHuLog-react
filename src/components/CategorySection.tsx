@@ -24,11 +24,13 @@ const CategorySection: React.FC<Props> = (props) => {
 };
 
 const Wrapper = styled.section`
-  font-size: 24px;
+  background-color: #ffda44;
   > ul {
     display: flex;
+    justify-content: center;
+    font-size: 18px;
     > li {
-      width: 50%;
+      width: 20%;
       text-align: center;
       padding: 16px 0;
       position: relative;

@@ -5,6 +5,9 @@ import Icon from 'components/Icon';
 import { Link } from "react-router-dom";
 import Button from "components/Button";
 import {Center} from "components/Center";
+import {CategorySection} from '../components/CategorySection';
+import { useState } from "react";
+
 
 const TagList = styled.ol`
   background: white;
@@ -22,15 +25,18 @@ const TagList = styled.ol`
   }
 `;
 
-
 function Tags() {
   const { tags, addTag} = useTags();
+  const [category,setCategory] = useState<'-'|'+'>("-");
+
   return (
     <Layout>
+      <CategorySection value={category}
+        onChange={value => setCategory(value)}/>    
       <TagList>
         {tags.map(tag => (
           <li key={tag.id}>
-            <Link to={'/tags/'+tag.id}>
+            <Link to={'/tags/'+tag.id +'/category/' + category}>
               <span className='oneLine'>{tag.name}</span>
               <Icon name='right'/>
             </Link>
