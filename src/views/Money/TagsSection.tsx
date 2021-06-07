@@ -59,9 +59,7 @@ const TagsSection: React.FC<Props> = (props) => {
         {tagsList.map((tag) => (
           <li
             key={tag.id}
-            onClick={() => {
-              onToggleTag(tag.id);
-            }}
+            onClick={() => { onToggleTag(tag.id) }}
             className={getClass(tag.id)}
           >
             {tag.name}
