@@ -10,8 +10,9 @@ const Wrapper = styled.section`
   > ol {
     height: 36vh;
     overflow: auto;
+    padding-top: 10px;
     > li {
-      background: #d9d9d9;
+      background: #ececec;
       border-radius: 18px;
       display: inline-block;
       padding: 10px 18px;
