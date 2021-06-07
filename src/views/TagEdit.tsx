@@ -8,8 +8,11 @@ import styled from 'styled-components';
 import {Center} from '../components/Center';
 import InputItem from 'components/InputItem';
 
+type categoryType = '-'|'+'
+
 type Params = {
   id: string
+  category: categoryType
 }
 const Topbar = styled.header`
   display:flex;
@@ -26,15 +29,15 @@ const InputWrapper = styled.div`
 `;
 const TagEdit: React.FC = () => { 
   const {findTag, updateTag, deleteTag} = useTags();
-  let {id: idString} = useParams<Params>();
+  let {id: idString, category } = useParams<Params>();
   const tag = findTag(parseInt(idString));
-  const tagContent = (tag: { id: number; name: string }) => (
+  const tagContent = (tag: { id: number; name: string; category: categoryType}) => (
     <div>
       <InputWrapper>
         <InputItem label="标签名" type="text" placeholder="标签名"
                value={tag.name}
                onChange={(e) => {
-                 updateTag(tag.id, {name: e.target.value});
+                 updateTag(tag.id, {name: e.target.value, category});
                }}
         />
       </InputWrapper>

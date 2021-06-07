@@ -22,7 +22,7 @@ const App = ()=> {
     <AppWrapper>
       <Router>
         <Switch>
-          <Route exact path="/tags/:id">
+          <Route exact path="/tags/:id/category/:category">
             <TagEdit />
           </Route>
           <Route exact path="/tags">
