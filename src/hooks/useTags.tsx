@@ -41,10 +41,10 @@ const useTags = () => { // 封装一个自定义 Hook
   const deleteTag = (id: number) => {
     setTags(tags.filter(tag => tag.id !== id));
   };
-  const addTag = () => {
+  const addTag = (category:categoryType) => {
     const tagName = window.prompt('新标签的名称为');
     if (tagName !== null && tagName !== '') {
-      setTags([...tags, {id: createId(), name: tagName, category:'-'}]);
+      setTags([...tags, {id: createId(), name: tagName, category}]);
     }
   };
   const getName = (id: number) => {

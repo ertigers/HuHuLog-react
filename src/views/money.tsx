@@ -40,7 +40,7 @@ function Money() {
       <CategorySection value={selected.category}
         onChange={category => onChange({category})}/>
 
-      <TagsSection value={selected.tagIds}
+      <TagsSection value={selected.tagIds} category={selected.category}
         onChange={tagIds => onChange({tagIds})}/>
 
       <NoteSection value={selected.note}

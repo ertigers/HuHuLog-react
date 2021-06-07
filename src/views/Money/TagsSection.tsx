@@ -14,11 +14,9 @@ const Wrapper = styled.section`
       background: #d9d9d9;
       border-radius: 18px;
       display: inline-block;
-      padding: 3px 18px;
+      padding: 10px 18px;
       font-size: 14px;
       margin: 8px 12px;
-      height: 90px;
-      width: 90px;
       &.selected {
         background: #ffda44;
       }
@@ -33,13 +31,15 @@ const Wrapper = styled.section`
     margin-top: 8px;
   }
 `;
-
+type categoryType = '-'|'+'
 type Props = {
   value: number[];
+  category: categoryType;
   onChange: (selected: number[]) => void;
 };
 const TagsSection: React.FC<Props> = (props) => {
   const { tags } = useTags();
+  let tagsList = tags.filter(item=>item.category === props.category)
   const selectedTagIds = props.value;
   const onToggleTag = (tagId: number) => {
     const index = selectedTagIds.indexOf(tagId);
@@ -55,7 +55,7 @@ const TagsSection: React.FC<Props> = (props) => {
   return (
     <Wrapper>
       <ol>
-        {tags.map((tag) => (
+        {tagsList.map((tag) => (
           <li
             key={tag.id}
             onClick={() => {
