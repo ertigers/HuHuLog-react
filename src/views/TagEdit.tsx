@@ -7,6 +7,7 @@ import  Button from 'components/Button';
 import styled from 'styled-components';
 import {Center} from '../components/Center';
 import InputItem from 'components/InputItem';
+import None from 'components/None';
 
 type categoryType = '-'|'+'
 
@@ -60,9 +61,7 @@ const TagEdit: React.FC = () => {
         <span>编辑标签</span>
         <Icon/>
       </Topbar>
-
-      {tag ? tagContent(tag) : <Center>tag 不存在</Center>}
-
+      {tag ? tagContent(tag) : <None />}
     </Layout>
   );
 };

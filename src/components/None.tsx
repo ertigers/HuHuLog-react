@@ -10,7 +10,7 @@ const NoneWrapper = styled.div`
 
 function None() {
   return (    
-    <NoneWrapper>哎呀，怎么没有记录~</NoneWrapper>    
+    <NoneWrapper>空空如也~</NoneWrapper>    
   )
 }
 
